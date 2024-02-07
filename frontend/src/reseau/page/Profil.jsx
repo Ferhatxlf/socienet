@@ -95,6 +95,20 @@ const Profil = () => {
             flexDirection: "column",
           }}
         >
+          <li>
+            <button
+              style={{
+                backgroundColor: "transparent",
+                border: "none",
+                cursor: "pointer",
+                color: "#333",
+                fontSize: "16px",
+              }}
+              onClick={() => setComponent(2)}
+            >
+              Mes informations
+            </button>
+          </li>
           <li style={{ marginBottom: "10px" }}>
             <button
               style={{
@@ -276,6 +290,42 @@ const Profil = () => {
               <p style={{ color: "red", marginTop: "10px" }}>{error}</p>
             )}
           </form>
+        </div>
+      )}
+      {component === 2 && (
+        <div style={{ width: "80%" }}>
+          <div
+            style={{
+              height: "100vh",
+              display: "flex",
+              flexDirection: "column",
+              justifyContent: "center",
+              alignItems: "center",
+              margin: "0 auto",
+            }}
+          >
+            <h2> Informations</h2>
+            <div>
+              <p>
+                <strong>Nom:</strong> {user.nom}
+              </p>
+              <p>
+                <strong>Prénom:</strong> {user.username}
+              </p>
+              <p>
+                <strong>Address:</strong> {user.adresse}
+              </p>
+              <p>
+                <strong>Email:</strong> {user.email}
+              </p>
+              <p>
+                <strong>Telephone:</strong> {user.telephone}
+              </p>
+              <p>
+                <strong>Bio:</strong> {user.bio}
+              </p>
+            </div>
+          </div>
         </div>
       )}
     </div>
