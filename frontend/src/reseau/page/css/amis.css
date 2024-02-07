@@ -1,0 +1,35 @@
+.amis{
+    display: flex;
+    justify-content: space-around;
+    width: 100%;
+    flex-wrap: wrap;
+    padding-top: 1rem;
+}
+.prs img{
+    width: 200px;
+    height: 200px;
+    justify-content: center;
+}
+ .bouton{
+    background-color: #f17007;
+    text-decoration: none;
+    color: white;
+    padding: 0.5REM 2rem;
+    border-radius: 0.5rem;
+  }
+  .user{
+    display: flex;
+    justify-content: center;
+    text-align: center;
+
+    font-size: 1.2REM;
+    color: #1f4066;
+    text-transform: uppercase;
+  }
+.prs{
+    display: grid;
+    justify-content: center;
+    background-color: white;
+    text-align: center;
+    padding: 1rem;
+}

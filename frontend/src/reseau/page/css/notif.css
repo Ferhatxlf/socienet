@@ -1,0 +1,27 @@
+.noti{
+    width: 100%;
+   
+  }
+  .de{
+    margin-top: 1rem;
+  
+    justify-content: center;
+
+  
+  }
+  .not{
+    width: 100%;
+    display: flex;
+margin-top: 1rem;
+background-color: white;
+  }
+.sup{
+  padding-right: 1rem;
+}
+  .not p{
+    display: flex;
+    padding-left: 0.5REM;
+    font-weight: 600;
+    width: 100%;
+border-bottom: #1f4066;
+  }
