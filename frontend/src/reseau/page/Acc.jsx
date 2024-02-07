@@ -1,5 +1,5 @@
 import React from "react";
-import { useEffect, useState } from "react";
+import { useEffect, useState, useRef } from "react";
 import "./css/acc.css";
 import prf from "../pht/saf.jpg";
 
@@ -19,26 +19,33 @@ function Acc() {
   const [userData, setUserData] = useState(null);
   const [comment, setComment] = useState("");
   const [user, setUser] = useState();
+  const flag = useRef(0);
 
   useEffect(() => {
-    const a = localStorage.getItem("currentUser");
+    console.log(flag.current);
+    if (flag.current < 10) {
+      console.log(flag.current);
 
-    setUser(JSON.parse(a));
-    if (user) {
-      fetch(`http://localhost:8000/user/${user?.email}`)
-        .then((res) => res.json())
-        .then((data) => {
-          console.log("User data response:", data);
+      flag.current = flag.current + 1;
+      const a = localStorage.getItem("currentUser");
 
-          if (data.Status === "Success") {
-            setUserData(data.user);
-          } else {
-            console.error("Error fetching user data:", data.Message);
-          }
-        })
-        .catch((error) => {
-          console.error("Error fetching user data:", error);
-        });
+      setUser(JSON.parse(a));
+      if (user) {
+        fetch(`http://localhost:8000/user/${user?.email}`)
+          .then((res) => res.json())
+          .then((data) => {
+            console.log("User data response:", data);
+
+            if (data.Status === "Success") {
+              setUserData(data.user);
+            } else {
+              console.error("Error fetching user data:", data.Message);
+            }
+          })
+          .catch((error) => {
+            console.error("Error fetching user data:", error);
+          });
+      }
     }
   }, [user]);
 

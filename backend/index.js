@@ -224,6 +224,23 @@ app.get("/:id/comment", function (req, res) {
     res.status(200).json({ comments: results });
   });
 });
+
+app.post("/:userId/addPost", upload.single("image"), async (req, res) => {
+  const { userId } = req.params;
+  const { description } = req.body;
+  const image = req.file;
+
+  const query = "INSERT INTO post (usid, caption, image) VALUES (?,?,?)";
+
+  db.query(query, [userId, description, image.filename], (err, result) => {
+    if (err) {
+      console.error("Error registering user:", err);
+      res.status(500).json({ success: false, message: "Registration failed" });
+    } else {
+      res.json({ success: true, message: "Registration successful" });
+    }
+  });
+});
 const PORT = 8000;
 app.listen(PORT, () => {
   console.log(`Server is running on port ${PORT}`);
