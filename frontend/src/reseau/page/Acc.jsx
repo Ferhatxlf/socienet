@@ -147,11 +147,9 @@ function Acc() {
 
         if (res.ok) {
           const responseData = await res.json();
-          if (responseData.status === "Success") {
-            window.location.reload();
-          } else {
-            alert(responseData.message);
-          }
+
+          alert("Commentaire ajouté avec succès");
+          setShowModal(false);
         } else {
           alert("Échec de la connexion");
         }
