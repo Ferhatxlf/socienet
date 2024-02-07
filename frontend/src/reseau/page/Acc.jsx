@@ -18,9 +18,14 @@ function Acc() {
   const userEmail = location.state?.email;
   const [userData, setUserData] = useState(null);
   const [comment, setComment] = useState("");
+  const [user, setUser] = useState();
+
   useEffect(() => {
-    if (userEmail) {
-      fetch(`http://localhost:8000/user/${userEmail}`)
+    const a = localStorage.getItem("currentUser");
+
+    setUser(JSON.parse(a));
+    if (user) {
+      fetch(`http://localhost:8000/user/${user?.email}`)
         .then((res) => res.json())
         .then((data) => {
           console.log("User data response:", data);
@@ -35,7 +40,7 @@ function Acc() {
           console.error("Error fetching user data:", error);
         });
     }
-  }, [userEmail]);
+  }, [user]);
 
   const [showExplosion, setShowExplosion] = useState(false);
   const [explosionStyle, setExplosionStyle] = useState({});
