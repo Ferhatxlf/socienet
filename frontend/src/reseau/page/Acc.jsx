@@ -120,7 +120,7 @@ function Acc() {
       });
   }, []);
 
-  async function sendComment(e, id) {
+  async function sendComment(e) {
     const a = localStorage.getItem("currentUser");
 
     const me = JSON.parse(a);
@@ -148,7 +148,7 @@ function Acc() {
         if (res.ok) {
           const responseData = await res.json();
           if (responseData.status === "Success") {
-            alert("Commentaire ajouté avec succès");
+            window.location.reload();
           } else {
             alert(responseData.message);
           }
@@ -439,7 +439,7 @@ function Acc() {
                                         alt="KJDFV"
                                         width="55PX"
                                         height="55PX"
-                                        onClick={(e) => sendComment(e, post.id)}
+                                        onClick={(e) => sendComment(e)}
                                       />
                                     </div>
                                   </form>
